@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package genie_lgiciel_tp;
 
+import java.util.Scanner;
+
 /**
- *
- * @author Kib
+ * Simple Calculator
+ * Author: Kib
+ * Created by Bwimba Mihandago Dimer
  */
 public class Genie_lgiciel_tp {
 
@@ -15,7 +13,43 @@ public class Genie_lgiciel_tp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Simple Calculator");
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        double result;
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                } else {
+                    System.out.println("Error: Division by zero is not allowed.");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Error: Invalid operator.");
+                return;
+        }
+
+        System.out.println("Result: " + result);
+        scanner.close();
     }
-    
 }
